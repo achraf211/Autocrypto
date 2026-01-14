@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCrypto Online - Professional Automated Crypto Trading</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- BTC Price Ticker -->
+    <div class="btc-ticker">
+        <div class="container">
+            <div class="ticker-content">
+                <div class="ticker-item">
+                    <i class="fab fa-bitcoin"></i>
+                    <span class="ticker-label">BTC/USD:</span>
+                    <span class="ticker-price" id="btcPrice">$0.00</span>
+                    <span class="ticker-change" id="btcChange">+0.00%</span>
+                </div>
+                <div class="ticker-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="ticker-label">24h Volume:</span>
+                    <span class="ticker-value" id="btcVolume">$0.00B</span>
+                </div>
+                <div class="ticker-item">
+                    <i class="fas fa-users"></i>
+                    <span class="ticker-label">Active Traders:</span>
+                    <span class="ticker-value" id="activeTraders">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>AutoCrypto Online</span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="deposit.html">Deposit</a>
+                    <a href="withdraw.html">Withdraw</a>
+                    <a href="rules.html">Rules</a>
+                    <a href="dashboard.html" class="btn-primary">Get Started</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Automated Crypto Trading</span>
+                        <br>Made Simple & Profitable
+                    </h1>
+                    <p class="hero-subtitle">
+                        Invest once, earn daily. Our advanced AI-powered trading bot works 24/7 to maximize your returns. 
+                        <strong>No trading experience needed.</strong>
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">$2.4M+</div>
+                            <div class="stat-label">Total Invested</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1,247</div>
+                            <div class="stat-label">Active Investors</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">99.2%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="dashboard.html" class="btn btn-primary btn-large">
+                            <i class="fas fa-rocket"></i>
+                            Start Investing Now
+                        </a>
+                        <a href="#how-it-works" class="btn btn-secondary btn-large">
+                            <i class="fas fa-play-circle"></i>
+                            How It Works
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="trading-card">
+                        <div class="card-header">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Live Trading</span>
+                            <span class="status-badge">Active</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="profit-display">
+                                <div class="profit-label">Today's Profit</div>
+                                <div class="profit-value">+$1,234.56</div>
+                                <div class="profit-percent">+8.5%</div>
+                            </div>
+                            <div class="mini-chart" id="miniChart">
+                                <canvas id="profitChart"></canvas>
+                            </div>
+                            <div class="active-trades">
+                                <div class="trade-item">
+                                    <span class="trade-pair">BTC/USDT</span>
+                                    <span class="trade-status success">+2.3%</span>
+                                </div>
+                                <div class="trade-item">
+                                    <span class="trade-pair">ETH/USDT</span>
+                                    <span class="trade-status success">+1.8%</span>
+                                </div>
+                                <div class="trade-item">
+                                    <span class="trade-pair">BNB/USDT</span>
+                                    <span class="trade-status success">+3.1%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Simple 3-step process to start earning</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="step-title">Deposit Funds</h3>
+                    <p class="step-description">
+                        Choose your investment plan and deposit cryptocurrency. Minimum starting from $100.
+                    </p>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="step-title">Auto Trading</h3>
+                    <p class="step-description">
+                        Our AI bot trades automatically 24/7. You don't need to do anything - just relax!
+                    </p>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="step-title">Withdraw Profits</h3>
+                    <p class="step-description">
+                        Withdraw your profits anytime to your wallet. Fast and secure transactions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Plans -->
+    <section class="investment-plans">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Investment Plans</h2>
+                <p class="section-subtitle">Choose the plan that fits your investment goals</p>
+            </div>
+            <div class="plans-grid">
+                <!-- Starter Plan -->
+                <div class="plan-card">
+                    <div class="plan-badge">Starter</div>
+                    <div class="plan-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="plan-name">Basic Plan</h3>
+                    <div class="plan-price">
+                        <span class="price-symbol">$</span>
+                        <span class="price-value">100</span>
+                        <span class="price-label">Minimum</span>
+                    </div>
+                    <div class="plan-return">
+                        <div class="return-value">5%</div>
+                        <div class="return-label">Daily Returns</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Automated Trading</li>
+                        <li><i class="fas fa-check"></i> 24/7 Support</li>
+                        <li><i class="fas fa-check"></i> Instant Withdrawals</li>
+                        <li><i class="fas fa-check"></i> Risk Management</li>
+                        <li><i class="fas fa-check"></i> Daily Profit Reports</li>
+                    </ul>
+                    <div class="plan-potential">
+                        <div class="potential-label">30-Day Potential:</div>
+                        <div class="potential-value">$250</div>
+                    </div>
+                    <a href="deposit.html?plan=basic" class="btn btn-primary btn-block">
+                        <i class="fas fa-rocket"></i>
+                        Invest Now
+                    </a>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="plan-card featured">
+                    <div class="plan-badge popular">Most Popular</div>
+                    <div class="plan-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="plan-name">Professional Plan</h3>
+                    <div class="plan-price">
+                        <span class="price-symbol">$</span>
+                        <span class="price-value">500</span>
+                        <span class="price-label">Minimum</span>
+                    </div>
+                    <div class="plan-return">
+                        <div class="return-value">7%</div>
+                        <div class="return-label">Daily Returns</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Everything in Basic</li>
+                        <li><i class="fas fa-check"></i> Advanced Trading Algorithms</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Higher Returns</li>
+                        <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                    </ul>
+                    <div class="plan-potential">
+                        <div class="potential-label">30-Day Potential:</div>
+                        <div class="potential-value">$1,550</div>
+                    </div>
+                    <a href="deposit.html?plan=professional" class="btn btn-primary btn-block">
+                        <i class="fas fa-rocket"></i>
+                        Invest Now
+                    </a>
+                </div>
+
+                <!-- VIP Plan -->
+                <div class="plan-card">
+                    <div class="plan-badge vip">VIP</div>
+                    <div class="plan-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="plan-name">Elite Plan</h3>
+                    <div class="plan-price">
+                        <span class="price-symbol">$</span>
+                        <span class="price-value">1,000</span>
+                        <span class="price-label">Minimum</span>
+                    </div>
+                    <div class="plan-return">
+                        <div class="return-value">10%</div>
+                        <div class="return-label">Daily Returns</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> Maximum Returns</li>
+                        <li><i class="fas fa-check"></i> VIP Support 24/7</li>
+                        <li><i class="fas fa-check"></i> Custom Trading Strategy</li>
+                        <li><i class="fas fa-check"></i> Exclusive Market Insights</li>
+                    </ul>
+                    <div class="plan-potential">
+                        <div class="potential-label">30-Day Potential:</div>
+                        <div class="potential-value">$4,000</div>
+                    </div>
+                    <a href="deposit.html?plan=elite" class="btn btn-primary btn-block">
+                        <i class="fas fa-rocket"></i>
+                        Invest Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose AutoCrypto?</h2>
+                <p class="section-subtitle">Professional automated trading platform built for investors</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">100% Secure</h3>
+                    <p class="feature-description">Bank-level encryption and security protocols to protect your investments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Trading</h3>
+                    <p class="feature-description">Our AI bot never sleeps. Continuous trading around the clock.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Instant Withdrawals</h3>
+                    <p class="feature-description">Access your profits anytime with fast and secure withdrawals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">High Returns</h3>
+                    <p class="feature-description">Up to 10% daily returns with our advanced trading strategies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="feature-title">AI Powered</h3>
+                    <p class="feature-description">Advanced algorithms analyze markets and execute profitable trades.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">Expert Support</h3>
+                    <p class="feature-description">Professional support team available 24/7 to assist you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Earning?</h2>
+                <p class="cta-subtitle">Join thousands of investors who trust AutoCrypto Online</p>
+                <a href="dashboard.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-rocket"></i>
+                    Start Investing Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">
+                        <i class="fas fa-robot"></i>
+                        AutoCrypto Online
+                    </h3>
+                    <p class="footer-description">
+                        Professional automated cryptocurrency trading platform. Earn daily returns with AI-powered trading bots.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="deposit.html">Deposit</a></li>
+                        <li><a href="withdraw.html">Withdraw</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="rules.html#faq">FAQ</a></li>
+                        <li><a href="rules.html#terms">Terms of Service</a></li>
+                        <li><a href="rules.html#privacy">Privacy Policy</a></li>
+                        <li><a href="rules.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AutoCrypto Online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

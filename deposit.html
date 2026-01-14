@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit - AutoCrypto Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/deposit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- BTC Price Ticker -->
+    <div class="btc-ticker">
+        <div class="container">
+            <div class="ticker-content">
+                <div class="ticker-item">
+                    <i class="fab fa-bitcoin"></i>
+                    <span class="ticker-label">BTC/USD:</span>
+                    <span class="ticker-price" id="btcPrice">$0.00</span>
+                    <span class="ticker-change positive" id="btcChange">+0.00%</span>
+                </div>
+                <div class="ticker-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="ticker-label">24h Volume:</span>
+                    <span class="ticker-value" id="btcVolume">$0.00B</span>
+                </div>
+                <div class="ticker-item">
+                    <i class="fas fa-users"></i>
+                    <span class="ticker-label">Active Traders:</span>
+                    <span class="ticker-value" id="activeTraders">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>AutoCrypto Online</span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="deposit.html" class="active">Deposit</a>
+                    <a href="withdraw.html">Withdraw</a>
+                    <a href="rules.html">Rules</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Deposit Content -->
+    <div class="deposit-container">
+        <div class="container">
+            <div class="page-header">
+                <h1>
+                    <i class="fas fa-wallet"></i>
+                    Make a Deposit
+                </h1>
+                <p>Choose your investment plan and start earning daily profits automatically</p>
+            </div>
+
+            <div class="deposit-grid">
+                <!-- Step 1: Choose Plan -->
+                <div class="deposit-card" id="step1">
+                    <div class="card-header">
+                        <h3>
+                            <span class="step-number">1</span>
+                            Choose Investment Plan
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="plans-selection">
+                            <div class="plan-option" data-plan="basic" data-amount="100" data-percent="5">
+                                <input type="radio" name="plan" id="plan-basic" value="basic">
+                                <label for="plan-basic">
+                                    <div class="plan-header">
+                                        <i class="fas fa-seedling"></i>
+                                        <span class="plan-name">Basic Plan</span>
+                                    </div>
+                                    <div class="plan-return">5% Daily</div>
+                                    <div class="plan-min">Min: $100</div>
+                                </label>
+                            </div>
+                            <div class="plan-option featured" data-plan="professional" data-amount="500" data-percent="7">
+                                <input type="radio" name="plan" id="plan-professional" value="professional" checked>
+                                <label for="plan-professional">
+                                    <div class="plan-header">
+                                        <i class="fas fa-gem"></i>
+                                        <span class="plan-name">Professional</span>
+                                        <span class="popular-badge">Popular</span>
+                                    </div>
+                                    <div class="plan-return">7% Daily</div>
+                                    <div class="plan-min">Min: $500</div>
+                                </label>
+                            </div>
+                            <div class="plan-option" data-plan="elite" data-amount="1000" data-percent="10">
+                                <input type="radio" name="plan" id="plan-elite" value="elite">
+                                <label for="plan-elite">
+                                    <div class="plan-header">
+                                        <i class="fas fa-crown"></i>
+                                        <span class="plan-name">Elite Plan</span>
+                                    </div>
+                                    <div class="plan-return">10% Daily</div>
+                                    <div class="plan-min">Min: $1,000</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Enter Amount -->
+                <div class="deposit-card" id="step2">
+                    <div class="card-header">
+                        <h3>
+                            <span class="step-number">2</span>
+                            Enter Deposit Amount
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="amount-input-section">
+                            <label for="depositAmount">Investment Amount (USD)</label>
+                            <div class="input-group">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="depositAmount" class="amount-input" placeholder="500" min="100" value="500">
+                            </div>
+                            <div class="quick-amounts">
+                                <button class="quick-btn" data-amount="100">$100</button>
+                                <button class="quick-btn" data-amount="500">$500</button>
+                                <button class="quick-btn" data-amount="1000">$1,000</button>
+                                <button class="quick-btn" data-amount="5000">$5,000</button>
+                            </div>
+                        </div>
+                        
+                        <div class="profit-calculator">
+                            <h4>
+                                <i class="fas fa-calculator"></i>
+                                Profit Calculator
+                            </h4>
+                            <div class="calculator-results">
+                                <div class="calc-item">
+                                    <span class="calc-label">Daily Profit:</span>
+                                    <span class="calc-value" id="dailyProfit">$35.00</span>
+                                </div>
+                                <div class="calc-item">
+                                    <span class="calc-label">Weekly Profit:</span>
+                                    <span class="calc-value" id="weeklyProfit">$245.00</span>
+                                </div>
+                                <div class="calc-item highlighted">
+                                    <span class="calc-label">Monthly Profit:</span>
+                                    <span class="calc-value" id="monthlyProfit">$1,050.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Select Payment Method -->
+                <div class="deposit-card" id="step3">
+                    <div class="card-header">
+                        <h3>
+                            <span class="step-number">3</span>
+                            Select Payment Method
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="payment-methods">
+                            <div class="payment-option" data-method="bitcoin">
+                                <input type="radio" name="payment" id="payment-btc" value="bitcoin" checked>
+                                <label for="payment-btc">
+                                    <i class="fab fa-bitcoin"></i>
+                                    <span>Bitcoin (BTC)</span>
+                                </label>
+                            </div>
+                            <div class="payment-option" data-method="ethereum">
+                                <input type="radio" name="payment" id="payment-eth" value="ethereum">
+                                <label for="payment-eth">
+                                    <i class="fab fa-ethereum"></i>
+                                    <span>Ethereum (ETH)</span>
+                                </label>
+                            </div>
+                            <div class="payment-option" data-method="usdt">
+                                <input type="radio" name="payment" id="payment-usdt" value="usdt">
+                                <label for="payment-usdt">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>USDT (TRC20)</span>
+                                </label>
+                            </div>
+                            <div class="payment-option" data-method="bnb">
+                                <input type="radio" name="payment" id="payment-bnb" value="bnb">
+                                <label for="payment-bnb">
+                                    <i class="fas fa-coins"></i>
+                                    <span>BNB (BSC)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large btn-block" id="continueBtn">
+                            <i class="fas fa-arrow-right"></i>
+                            Continue to Payment
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Instructions (Hidden Initially) -->
+            <div class="payment-instructions" id="paymentInstructions" style="display: none;">
+                <div class="deposit-card">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-info-circle"></i>
+                            Payment Instructions
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="payment-details">
+                            <div class="alert alert-info">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <div>
+                                    <strong>Important:</strong> Please send the exact amount to the address below. 
+                                    Your deposit will be processed automatically after network confirmation.
+                                </div>
+                            </div>
+
+                            <div class="deposit-summary">
+                                <div class="summary-row">
+                                    <span>Selected Plan:</span>
+                                    <strong id="selectedPlan">Professional Plan</strong>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Deposit Amount:</span>
+                                    <strong id="selectedAmount">$500.00</strong>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Daily Return:</span>
+                                    <strong class="success" id="selectedPercent">7%</strong>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Payment Method:</span>
+                                    <strong id="selectedMethod">Bitcoin (BTC)</strong>
+                                </div>
+                            </div>
+
+                            <div class="wallet-address-section">
+                                <label>Send <span id="cryptoSymbol">BTC</span> to this address:</label>
+                                <div class="address-box">
+                                    <div class="address-qr">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bc1q..." alt="QR Code" id="qrCode">
+                                    </div>
+                                    <div class="address-details">
+                                        <div class="address-text" id="walletAddress">
+                                            bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
+                                        </div>
+                                        <button class="btn btn-secondary" id="copyAddressBtn">
+                                            <i class="fas fa-copy"></i>
+                                            Copy Address
+                                        </button>
+                                        <div class="copy-success" id="copySuccess">
+                                            <i class="fas fa-check"></i>
+                                            Copied!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="amount-to-send">
+                                <label>Amount to Send:</label>
+                                <div class="crypto-amount" id="cryptoAmount">0.0123 BTC</div>
+                                <div class="crypto-note">≈ $500.00 USD</div>
+                            </div>
+
+                            <div class="alert alert-warning">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Processing Time:</strong> Your deposit will be credited to your account 
+                                    after 2-3 network confirmations (approximately 20-30 minutes).
+                                </div>
+                            </div>
+
+                            <div class="deposit-actions">
+                                <button class="btn btn-secondary" id="backBtn">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Back
+                                </button>
+                                <a href="dashboard.html" class="btn btn-primary">
+                                    <i class="fas fa-check"></i>
+                                    I've Sent the Payment
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="help-section">
+                <div class="help-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h4>Need Help?</h4>
+                    <p>If you have any questions about the deposit process, please contact our support team.</p>
+                    <a href="rules.html#faq" class="btn btn-secondary">
+                        <i class="fas fa-life-ring"></i>
+                        View FAQ
+                    </a>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Secure & Safe</h4>
+                    <p>All transactions are secured with SSL encryption and blockchain technology.</p>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Fast Processing</h4>
+                    <p>Your deposit will be processed automatically within 20-30 minutes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">
+                        <i class="fas fa-robot"></i>
+                        AutoCrypto Online
+                    </h3>
+                    <p class="footer-description">
+                        Professional automated cryptocurrency trading platform. Earn daily returns with AI-powered trading bots.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="deposit.html">Deposit</a></li>
+                        <li><a href="withdraw.html">Withdraw</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="rules.html#faq">FAQ</a></li>
+                        <li><a href="rules.html#terms">Terms of Service</a></li>
+                        <li><a href="rules.html#privacy">Privacy Policy</a></li>
+                        <li><a href="rules.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AutoCrypto Online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/deposit.js"></script>
+</body>
+</html>

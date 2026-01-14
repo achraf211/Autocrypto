@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw - AutoCrypto Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/deposit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- BTC Price Ticker -->
+    <div class="btc-ticker">
+        <div class="container">
+            <div class="ticker-content">
+                <div class="ticker-item">
+                    <i class="fab fa-bitcoin"></i>
+                    <span class="ticker-label">BTC/USD:</span>
+                    <span class="ticker-price" id="btcPrice">$0.00</span>
+                    <span class="ticker-change positive" id="btcChange">+0.00%</span>
+                </div>
+                <div class="ticker-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="ticker-label">24h Volume:</span>
+                    <span class="ticker-value" id="btcVolume">$0.00B</span>
+                </div>
+                <div class="ticker-item">
+                    <i class="fas fa-users"></i>
+                    <span class="ticker-label">Active Traders:</span>
+                    <span class="ticker-value" id="activeTraders">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>AutoCrypto Online</span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="deposit.html">Deposit</a>
+                    <a href="withdraw.html" class="active">Withdraw</a>
+                    <a href="rules.html">Rules</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Withdraw Content -->
+    <div class="deposit-container">
+        <div class="container">
+            <div class="page-header">
+                <h1>
+                    <i class="fas fa-money-bill-wave"></i>
+                    Withdraw Funds
+                </h1>
+                <p>Request a withdrawal to your crypto wallet securely and instantly</p>
+            </div>
+
+            <!-- Balance Overview -->
+            <div class="balance-overview">
+                <div class="balance-card">
+                    <div class="balance-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="balance-info">
+                        <div class="balance-label">Available Balance</div>
+                        <div class="balance-amount" id="availableBalance">$175.00</div>
+                    </div>
+                </div>
+                <div class="balance-card">
+                    <div class="balance-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="balance-info">
+                        <div class="balance-label">Total Profits Earned</div>
+                        <div class="balance-amount success" id="totalProfits">$175.00</div>
+                    </div>
+                </div>
+                <div class="balance-card">
+                    <div class="balance-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="balance-info">
+                        <div class="balance-label">Invested (Locked)</div>
+                        <div class="balance-amount" id="lockedBalance">$500.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="deposit-grid">
+                <!-- Withdrawal Form -->
+                <div class="deposit-card">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-paper-plane"></i>
+                            Withdrawal Request
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="withdrawForm">
+                            <!-- Select Cryptocurrency -->
+                            <div class="form-group">
+                                <label for="withdrawCrypto">
+                                    <i class="fas fa-coins"></i>
+                                    Select Cryptocurrency
+                                </label>
+                                <div class="payment-methods">
+                                    <div class="payment-option" data-method="bitcoin">
+                                        <input type="radio" name="crypto" id="crypto-btc" value="bitcoin" checked>
+                                        <label for="crypto-btc">
+                                            <i class="fab fa-bitcoin"></i>
+                                            <span>Bitcoin (BTC)</span>
+                                        </label>
+                                    </div>
+                                    <div class="payment-option" data-method="ethereum">
+                                        <input type="radio" name="crypto" id="crypto-eth" value="ethereum">
+                                        <label for="crypto-eth">
+                                            <i class="fab fa-ethereum"></i>
+                                            <span>Ethereum (ETH)</span>
+                                        </label>
+                                    </div>
+                                    <div class="payment-option" data-method="usdt">
+                                        <input type="radio" name="crypto" id="crypto-usdt" value="usdt">
+                                        <label for="crypto-usdt">
+                                            <i class="fas fa-dollar-sign"></i>
+                                            <span>USDT (TRC20)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Wallet Address -->
+                            <div class="form-group">
+                                <label for="walletAddress">
+                                    <i class="fas fa-wallet"></i>
+                                    Your Wallet Address
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="walletAddress" 
+                                    class="form-input" 
+                                    placeholder="Enter your wallet address" 
+                                    required
+                                >
+                                <small class="form-help">
+                                    <i class="fas fa-info-circle"></i>
+                                    Make sure the address matches the selected cryptocurrency
+                                </small>
+                            </div>
+
+                            <!-- Withdrawal Amount -->
+                            <div class="form-group">
+                                <label for="withdrawAmount">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    Withdrawal Amount (USD)
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-prefix">$</span>
+                                    <input 
+                                        type="number" 
+                                        id="withdrawAmount" 
+                                        class="amount-input" 
+                                        placeholder="0.00" 
+                                        min="10" 
+                                        max="175"
+                                        step="0.01"
+                                        required
+                                    >
+                                </div>
+                                <div class="amount-limits">
+                                    <span>Minimum: $10.00</span>
+                                    <span>Maximum: $175.00</span>
+                                </div>
+                                <div class="quick-amounts">
+                                    <button type="button" class="quick-btn" data-amount="50">$50</button>
+                                    <button type="button" class="quick-btn" data-amount="100">$100</button>
+                                    <button type="button" class="quick-btn" data-amount="175">All</button>
+                                </div>
+                            </div>
+
+                            <!-- Withdrawal Summary -->
+                            <div class="withdrawal-summary">
+                                <h4>
+                                    <i class="fas fa-calculator"></i>
+                                    Withdrawal Summary
+                                </h4>
+                                <div class="summary-row">
+                                    <span>Withdrawal Amount:</span>
+                                    <strong id="summaryAmount">$0.00</strong>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Processing Fee:</span>
+                                    <strong id="summaryFee">$0.00</strong>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>You Will Receive:</span>
+                                    <strong id="summaryTotal">$0.00</strong>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Estimated Crypto:</span>
+                                    <strong id="summaryCrypto">0.0000 BTC</strong>
+                                </div>
+                            </div>
+
+                            <!-- Terms Agreement -->
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="agreeTerms" required>
+                                    <span>I confirm that the wallet address is correct and I understand that transactions are irreversible</span>
+                                </label>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-large btn-block">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Withdrawal Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Withdrawal Info -->
+                <div class="deposit-card">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-info-circle"></i>
+                            Withdrawal Information
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-section">
+                            <h4>
+                                <i class="fas fa-clock"></i>
+                                Processing Time
+                            </h4>
+                            <p>All withdrawal requests are processed within 24 hours. Most withdrawals are completed within 2-4 hours during business days.</p>
+                        </div>
+
+                        <div class="info-section">
+                            <h4>
+                                <i class="fas fa-percentage"></i>
+                                Fees & Limits
+                            </h4>
+                            <ul class="info-list">
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    Minimum withdrawal: $10.00
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    Processing fee: 2% (max $5)
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    No daily limit for verified accounts
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="info-section">
+                            <h4>
+                                <i class="fas fa-shield-alt"></i>
+                                Security Notice
+                            </h4>
+                            <p>Double-check your wallet address before submitting. Cryptocurrency transactions are irreversible and cannot be canceled once processed.</p>
+                        </div>
+
+                        <div class="info-section">
+                            <h4>
+                                <i class="fas fa-headset"></i>
+                                Need Help?
+                            </h4>
+                            <p>Contact our support team if you have any questions or issues with your withdrawal.</p>
+                            <a href="rules.html#contact" class="btn btn-secondary btn-block">
+                                <i class="fas fa-life-ring"></i>
+                                Contact Support
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Withdrawals -->
+            <div class="deposit-card full-width">
+                <div class="card-header">
+                    <h3>
+                        <i class="fas fa-history"></i>
+                        Recent Withdrawals
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="transactions-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Cryptocurrency</th>
+                                    <th>Status</th>
+                                    <th>Transaction ID</th>
+                                </tr>
+                            </thead>
+                            <tbody id="withdrawalsHistory">
+                                <tr>
+                                    <td>2024-01-10 16:45</td>
+                                    <td class="amount">$100.00</td>
+                                    <td>
+                                        <span class="crypto-badge">
+                                            <i class="fab fa-bitcoin"></i>
+                                            BTC
+                                        </span>
+                                    </td>
+                                    <td><span class="status-badge completed">Completed</span></td>
+                                    <td class="tx-id">
+                                        <span>bc1q...wlh</span>
+                                        <button class="copy-btn" title="Copy">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2024-01-05 09:30</td>
+                                    <td class="amount">$75.00</td>
+                                    <td>
+                                        <span class="crypto-badge">
+                                            <i class="fab fa-ethereum"></i>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td><span class="status-badge completed">Completed</span></td>
+                                    <td class="tx-id">
+                                        <span>0x1234...5678</span>
+                                        <button class="copy-btn" title="Copy">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="empty-state" id="emptyState" style="display: none;">
+                            <i class="fas fa-inbox"></i>
+                            <p>No withdrawal history yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">
+                        <i class="fas fa-robot"></i>
+                        AutoCrypto Online
+                    </h3>
+                    <p class="footer-description">
+                        Professional automated cryptocurrency trading platform. Earn daily returns with AI-powered trading bots.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="deposit.html">Deposit</a></li>
+                        <li><a href="withdraw.html">Withdraw</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="rules.html#faq">FAQ</a></li>
+                        <li><a href="rules.html#terms">Terms of Service</a></li>
+                        <li><a href="rules.html#privacy">Privacy Policy</a></li>
+                        <li><a href="rules.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AutoCrypto Online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/withdraw.js"></script>
+</body>
+</html>
